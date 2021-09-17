@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, useChatContext } from 'stream-chat-react';
 
+
 import { InviteIcon } from '../assets';
 
 const ListContainer = ({ children }) => {
@@ -48,8 +49,11 @@ const UserList = ({ setSelectedUsers }) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
+        
+      
         const getUsers = async () => {
-            if(loading) return;
+            
+       
 
             setLoading(true);
             
@@ -71,9 +75,9 @@ const UserList = ({ setSelectedUsers }) => {
             }
             setLoading(false);
         }
-
+         
         if(client)getUsers()
-    }, []);
+    }, [client]);
 
     if(error) {
         return (
